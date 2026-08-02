@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/strateos/transcriptic/blob/master/transcriptic/config.py
+docs: https://developers.strateos.com/docs/getting-started-with-the-cli
+api_root: https://secure.strateos.com
+summary:
+  types: [apiKey, http, custom-signature]
+  api_key_in: [header]
+  notes: >-
+    Token-based auth, no OAuth2 scope surface. The official client authenticates
+    with a per-user email + API token pair sent as request headers; a bearer-token
+    and an RSA request-signing mode are also supported by the client.
+schemes:
+  - name: UserEmailToken
+    type: apiKey
+    in: header
+    header_names:
+      - X-User-Email
+      - X-User-Token
+    description: >-
+      Primary auth. The user's account email and a personal API token (obtained via
+      `transcriptic login` or the web app) are sent on every request as the
+      X-User-Email and X-User-Token headers.
+    source: transcriptic/config.py
+  - name: SessionCookie
+    type: apiKey
+    in: cookie
+    description: >-
+      Alternative browser-session authentication via Cookie, mutually exclusive with
+      token headers.
+    source: transcriptic/config.py
+  - name: StrateosBearer
+    type: http
+    scheme: bearer
+    description: >-
+      Bearer-token authentication via the Authorization header (StrateosBearerAuth in
+      the official client).
+    source: transcriptic/config.py
+  - name: StrateosSign
+    type: custom
+    description: >-
+      RSA signature-based request authentication (StrateosSign in the official
+      client) for signed programmatic access.
+    source: transcriptic/config.py

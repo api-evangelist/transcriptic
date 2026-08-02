@@ -1,8 +1,28 @@
 aid: transcriptic
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/transcriptic.png
 name: Transcriptic
-description: 'Transcriptic is a company surfaced as a portfolio company of gv and added to the API Evangelist
-  network as a stub for enrichment. Sector: life-sciences. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Transcriptic is a robotic cloud laboratory for the life sciences, now operating as
+  Strateos following a merger with 3Scan. It lets researchers design, submit and run
+  wet-lab biology experiments remotely on automated robotic infrastructure: experiments
+  are specified in Autoprotocol (an open JSON standard) and submitted to a
+  JSON:API-compliant REST API at https://secure.strateos.com, where organizations,
+  projects, runs, datasets, containers and aliquots are managed programmatically and the
+  resulting datasets are fetched back for analysis. Transcriptic publishes an official
+  Python client library and command-line interface (TxPy, `pip install transcriptic`),
+  with Jupyter-notebook integration, and was backed by GV.
 url: https://raw.githubusercontent.com/api-evangelist/transcriptic/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +32,30 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Life Sciences
-apis: []
+- Laboratory Automation
+- Cloud Lab
+- Drug Discovery
+- Biotechnology
+- REST API
+- JSON:API
+- Autoprotocol
+apis:
+- name: Transcriptic / Strateos REST API
+  description: >-
+    JSON:API-compliant REST API for the Transcriptic / Strateos robotic cloud lab —
+    organizations, projects, runs, datasets, containers and aliquots, plus Autoprotocol
+    experiment submission. Authenticates via X-User-Email + X-User-Token headers.
+  humanURL: https://developers.strateos.com
+  baseURL: https://secure.strateos.com
+  properties:
+  - type: Documentation
+    url: https://transcriptic.readthedocs.io/en/latest/
+  - type: Authentication
+    url: authentication/transcriptic-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +64,34 @@ maintainers:
 common:
 - type: Website
   url: http://transcriptic.com
+- type: DeveloperPortal
+  url: https://developers.strateos.com
+- type: Documentation
+  url: https://transcriptic.readthedocs.io/en/latest/
+- type: GettingStarted
+  url: https://developers.strateos.com/docs/getting-started-with-the-cli
+- type: GitHubOrganization
+  url: https://github.com/strateos
+- type: Login
+  url: https://secure.strateos.com
+- type: Packages
+  url: packages/transcriptic-packages.yml
+- type: SDKs
+  url: packages/transcriptic-packages.yml
+- type: CLI
+  url: cli/transcriptic-cli.yml
+- type: Authentication
+  url: authentication/transcriptic-authentication.yml
+- type: Conventions
+  url: conventions/transcriptic-conventions.yml
+- type: Conformance
+  url: conformance/transcriptic-conformance.yml
+- type: DomainSecurity
+  url: security/transcriptic-domain-security.yml
+- type: LLMsTxt
+  url: llms/transcriptic-llms.txt
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1

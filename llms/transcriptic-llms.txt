@@ -1,0 +1,33 @@
+# Transcriptic (Strateos)
+
+> Transcriptic is a robotic cloud laboratory for the life sciences, now operating as
+> Strateos (following a merger with 3Scan). It lets researchers design, submit and run
+> wet-lab biology experiments remotely on automated robotic infrastructure, specifying
+> experiments in Autoprotocol (an open JSON standard) and retrieving the resulting
+> datasets programmatically. The platform exposes a JSON:API-compliant REST API at
+> https://secure.strateos.com, plus an official Python client and CLI (TxPy).
+
+## APIs
+- [Transcriptic / Strateos REST API](https://developers.strateos.com): JSON:API-compliant REST API (base https://secure.strateos.com) for organizations, projects, runs, datasets, containers and aliquots; auth via X-User-Email + X-User-Token headers.
+
+## SDKs & CLI
+- [transcriptic (PyPI)](https://pypi.org/project/transcriptic/): official Python client library and `transcriptic` CLI (TxPy). `pip install transcriptic`.
+- [strateos/transcriptic (GitHub)](https://github.com/strateos/transcriptic): source for the Python client + CLI.
+
+## Docs
+- [Developer Portal](https://developers.strateos.com): guides, CLI reference, Autoprotocol.
+- [Getting started with the CLI](https://developers.strateos.com/docs/getting-started-with-the-cli)
+- [ReadTheDocs](https://transcriptic.readthedocs.io/en/latest/): TxPy client library reference.
+- [Autoprotocol](https://autoprotocol.org): open JSON standard for experimental specification.
+
+## Standards
+- JSON:API (server built on jsonapi-resources; jsonapi-swagger tooling)
+- Autoprotocol (open experiment-specification JSON standard)
+
+## Repo artifacts
+- Packages: packages/transcriptic-packages.yml
+- CLI: cli/transcriptic-cli.yml
+- Authentication: authentication/transcriptic-authentication.yml
+- Conventions: conventions/transcriptic-conventions.yml
+- Conformance: conformance/transcriptic-conformance.yml
+- Domain security: security/transcriptic-domain-security.yml

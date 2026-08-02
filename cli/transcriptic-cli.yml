@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://developers.strateos.com/docs/getting-started-with-the-cli
+name: Transcriptic CLI (TxPy)
+description: >-
+  The transcriptic command-line interface, shipped inside the first-party Python
+  package `transcriptic`. Authenticates against the Transcriptic / Strateos cloud
+  laboratory REST API and drives protocol management, Autoprotocol submission, run
+  analysis and dataset retrieval. Also usable interactively from Jupyter notebooks.
+binary: transcriptic
+package: packages/transcriptic-packages.yml
+install:
+  - method: pip
+    command: pip install transcriptic
+  - method: pip-jupyter
+    command: pip install transcriptic[jupyter]
+auth:
+  method: login
+  command: transcriptic login
+  detail: >-
+    `transcriptic login` prompts for email + password and stores an API token in
+    the local ~/.transcriptic config; subsequent calls send X-User-Email and
+    X-User-Token headers to https://secure.strateos.com.
+docs:
+  - https://developers.strateos.com/docs/getting-started-with-the-cli
+  - https://transcriptic.readthedocs.io/en/latest/
+command_groups:
+  - name: login
+    summary: Authenticate the CLI against a Transcriptic/Strateos organization.
+  - name: projects
+    summary: List and inspect projects.
+  - name: runs
+    summary: Submit, analyze and inspect runs (Autoprotocol experiments).
+  - name: datasets
+    summary: Retrieve datasets produced by runs.
+  - name: protocols / packages / release
+    summary: Build, package and release Autoprotocol protocols.
+notes: >-
+  Command surface is documented at developers.strateos.com and
+  transcriptic.readthedocs.io; groups above reflect the documented CLI resource
+  model (projects, runs, datasets, protocol packaging/release). Not every
+  subcommand was enumerated verbatim.

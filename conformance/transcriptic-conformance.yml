@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/orgs/strateos/repositories
+standards:
+  - id: jsonapi
+    conforms: true
+    evidence: >-
+      The Strateos GitHub organization builds its REST API on jsonapi-resources
+      (a Rails JSON:API-compliant server library) and publishes jsonapi-swagger
+      tooling to generate a Swagger description of that JSON:API surface.
+  - id: autoprotocol
+    conforms: true
+    evidence: >-
+      Experiments are specified in Autoprotocol, the open JSON standard for
+      experimental specification, submitted through the API/CLI.
+  - id: oauth2
+    conforms: false
+    evidence: Authentication is email+token / bearer / RSA-signature, not OAuth2.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors follow the JSON:API error-object envelope (errors[]), not RFC 9457
+      application/problem+json.

@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/transcriptic/
+packages:
+  - language: python
+    registry: pypi
+    name: transcriptic
+    url: https://pypi.org/project/transcriptic/
+    install: pip install transcriptic
+    version: 9.6.3
+    license: BSD
+    official: true
+    description: >-
+      Transcriptic (TxPy) — the official Python client library and command-line
+      interface for the Transcriptic / Strateos robotic cloud laboratory. Manages
+      organizations, projects, runs, datasets, containers and aliquots, and submits
+      Autoprotocol experiments to the REST API. Ships CLI and Jupyter-notebook
+      interfaces. Requires Python >=3.6.
+    repository: https://github.com/strateos/transcriptic
+    extras:
+      - name: jupyter
+        install: pip install transcriptic[jupyter]
+      - name: analysis
+        install: pip install transcriptic[analysis]
+    provides_cli: true

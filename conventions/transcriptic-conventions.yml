@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from the JSON:API compliance of the Strateos REST API (jsonapi-resources)
+  and the official transcriptic client (config.py), plus developer docs.
+api_root: https://secure.strateos.com
+authentication:
+  style: apiKey header
+  headers: [X-User-Email, X-User-Token]
+  alternatives: [bearer (Authorization), RSA request signature, session cookie]
+  ref: authentication/transcriptic-authentication.yml
+media_type: application/vnd.api+json
+serialization: JSON:API (resource objects with type/id/attributes/relationships)
+pagination:
+  style: json:api
+  detail: >-
+    JSON:API page-based pagination. jsonapi-resources (the server library) supports
+    a paged paginator (page[number] / page[size]) and an offset paginator
+    (page[offset] / page[limit]); links.next / links.prev are returned in the
+    top-level links object.
+sparse_fieldsets:
+  supported: true
+  param: fields[TYPE]
+  detail: JSON:API sparse fieldsets to select attributes per resource type.
+compound_documents:
+  supported: true
+  param: include
+  detail: JSON:API ?include= to side-load related resources (compound documents).
+filtering_sorting:
+  filter_param: filter
+  sort_param: sort
+  detail: JSON:API filter[] and sort conventions.
+error_envelope:
+  style: json:api
+  shape: >-
+    Top-level errors[] array of error objects, each with members such as status,
+    title, detail and source (JSON:API error objects) — not RFC 9457
+    application/problem+json.
+idempotency:
+  supported: unknown
+  detail: >-
+    No documented idempotency-key contract. Writes follow JSON:API POST/PATCH/DELETE
+    semantics (PATCH/DELETE are naturally idempotent); no Idempotency-Key header was
+    found.
+versioning:
+  scheme: unknown
+  detail: API is served under https://secure.strateos.com; no explicit version
+    prefix or version header confirmed.
+cross_links:
+  authentication: authentication/transcriptic-authentication.yml
+  conformance: conformance/transcriptic-conformance.yml
